@@ -5,9 +5,9 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''#!/bin/bash
-                    git submodule update --init --recursive && pushd bitwarden_rs
+                    git submodule update --init --recursive && pushd vaultwarden
                     cargo clean && cargo build --features sqlite --release
-                    file target/release/bitwarden_rs
+                    file target/release/vaultwarden
 
                     pushd target/release/
                     git clone git clone https://github.com/bitwarden/web.git web-vault.git && cd web-vault.git
